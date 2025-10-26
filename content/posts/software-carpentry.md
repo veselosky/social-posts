@@ -1,6 +1,5 @@
 ---
 date: '2025-09-02T20:22:00-04:00'
-draft: true
 title: 'Software Carpentry'
 ---
 I am not a computer scientist. I am not an engineer.
