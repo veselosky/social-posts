@@ -1,5 +1,6 @@
 ---
-date: '2026-01-16T07:30:00-05:00'
+dateCreated: '2026-01-11T07:30:00-05:00'
+datePublished: '2026-01-16T07:30:00-05:00'
 title: 'Dotfiles'
 ---
 Want to take control of your data but don't know where to start? Dotfiles configure your tools and environment. Maybe start by getting that configuration under control. Version control.

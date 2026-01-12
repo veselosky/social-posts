@@ -5,8 +5,7 @@ draft: true
 title: 'Staticfiles 1'
 ---
 
-In Django, static files are one of the harshest speed bumps people hit at **deployment**. Why? Because static files are deceptively complex.
-
+In Django, **static files** are one of the harshest speed bumps people hit at deployment. Why? Because static files are deceptively complex.
 Static files feel simple — until you deploy.
 
 In development, Django's `runserver` command serves static files directly. It just works.

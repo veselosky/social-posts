@@ -1,6 +1,7 @@
 ---
-date: '2025-11-08T11:51:04-05:00'
-draft: true
+dateCreated: '2025-11-08T11:51:04-05:00'
+datePublished: '2026-01-14T07:30:00-05:00'
+date: '2026-01-14T07:30:00-05:00'
 title: 'Hugo Pagefind'
 ---
 
