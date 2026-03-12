@@ -4,33 +4,27 @@ draft: true
 title: 'Staticfiles 3'
 ---
 
-## 3️⃣ “Why Django Never Wanted to Serve Static Files”
+## Here's a crash course on Django's staticfiles architecture
 
-**(Educational / Architectural Insight)**
+Django's staticfiles app overrides the runserver command to serve static assets during development. In production, Django expects some other process to handle static files. At deployment time, you have to run:
 
-**Hook:**
-Django was *never* meant to serve static files in production.
+manage.py collectstatic
 
-And that’s a good thing.
+What happens depends on what you configure in your STORAGES setting.
 
-**Body:**
-Django assumes:
-• A real web server (Nginx, Apache, CDN)
-• Static assets served outside the request cycle
-• Long cache lifetimes
-• Immutable filenames
+There are two common deployment patterns:
 
-The `staticfiles` app isn’t a server—it’s a **build tool**.
+1. **A local web server**
+   - STORAGES['staticfiles'] is set to Django's ManifestStaticFilesStorage.
+   - collectstatic gathers static files into a single directory.
+   - A web server (Nginx/Apache/Caddy/etc.) serves static files from that directory.
+   - Web server passes other requests to Django.
+2. **S3-style object storage.**
+   - STORAGES['staticfiles'] is set to S3ManifestStaticStorage (from the django-storages package).
+   - collectstatic uploads static files to S3.
 
-It exists to:
-• Discover static assets across apps
-• Normalize them into one location
-• Prepare them for optimized delivery
+In both cases, it is wise to use a CDN in front of your static file server for performance and reliability. Then set STATIC_URL to point to the CDN URL.
 
-Once you understand that, Django’s design makes perfect sense.
+In a future post, we'll talk about why those storage backends have "Manifest" in their names, and why that's critically important.
 
-If you don’t—deployment feels “mysterious.”
-
-**CTA:**
-Understanding Django’s static architecture will make you a better backend engineer.
-I wrote a production-focused guide that connects all the dots.
+Stay tuned!
